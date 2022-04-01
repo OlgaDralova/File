@@ -1,0 +1,53 @@
+Во входном файле записано два целых числа, каждое в отдельной строке. Выведите в выходной файл их сумму.
+inFile = open('input.txt', 'w')
+for line in inFile:
+    mySum += int(line)
+inFile.close()
+outFile = open('output.txt', 'w')
+outFile.write(str(mySum) + '\n')
+outFile.close()
+
+
+
+Во входном файле записана одна текстовая строка, возможно, содержащая пробелы. Выведите эту строку в обратном порядке.
+Строка во входном файле заканчивается символом конца строки '\n'.
+f = open('text.txt', 'r')
+txt = f.read()
+f.close()
+print(txt[::-1][1:])
+
+
+
+Выведите все строки данного файла в обратном порядке. Для этого считайте список всех строк при помощи метода readlines().
+Последняя строка входного файла обязательно заканчивается символом '\n'.
+with open('input.txt') as f:
+    for text in reversed(f.readlines()):
+        print(text, end='')
+
+
+
+Выведите в обратном порядке содержимое всего файла полностью. Для этого считайте файл целиком при помощи метода read().
+with open('input.txt') as file:
+    text=file.readlines()
+r=0
+textlen=[0]*len(text)
+for i in range(len(text)):
+    text[i]=text[i].rstrip()
+    if r<len(text[i]):
+        r=len(text[i])
+for i in range(len(text)):
+    if len(text[i])==r:
+        text[i]=text[i].split()
+        print(' '.join(text[i]))
+        
+Определите, есть ли во входном файле символ '@'. Выведите слово YES или NO.
+Входной файл может быть очень большим, поэтому считывать файл нужно посимвольно.       
+input = open(file = 'input.txt', mode = 'r')
+output = open(file = 'output.txt', mode = 'w')
+s = input.read()
+output.write(s)
+input.close()
+output.close()
+
+
+
